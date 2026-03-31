@@ -1,428 +1,291 @@
 <!DOCTYPE html>
 <html lang="lv">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terasu Būvniecība Norvēģijā</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terasu Būvniecība Norvēģijā</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #fafafa;
-        }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f7f7f7;
+    }
 
-        /* Header / Hero */
-        .hero {
-            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-            min-height: 70vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+                  url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80') center/cover;
+      color: white;
+      text-align: center;
+      padding: 90px 20px;
+    }
 
-        .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
 
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin-bottom: 30px;
-            opacity: 0.95;
-        }
+    .hero p {
+      max-width: 800px;
+      margin: 0 auto 25px;
+      font-size: 18px;
+    }
 
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
 
-        .btn {
-            display: inline-block;
-            padding: 15px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-        }
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
 
-        .btn-primary {
-            background-color: #e74c3c;
-            color: white;
-        }
+    .btn-primary {
+      background: #d4a017;
+      color: white;
+    }
 
-        .btn-primary:hover {
-            background-color: #c0392b;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(231, 76, 60, 0.4);
-        }
+    .btn-secondary {
+      background: white;
+      color: #1f4e79;
+    }
 
-        .btn-whatsapp {
-            background-color: #25D366;
-            color: white;
-        }
+    .center-btn {
+      display: block;
+      width: 220px;
+      margin: 12px auto;
+      padding: 14px 20px;
+      background: #1f4e79;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 17px;
+      font-weight: bold;
+    }
 
-        .btn-whatsapp:hover {
-            background-color: #1da851;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
-        }
+    .center-btn:hover {
+      opacity: 0.92;
+    }
 
-        /* Services Section */
-        .services {
-            padding: 80px 20px;
-            background-color: white;
-        }
+    #dynamic-content {
+      max-width: 900px;
+      margin: 30px auto;
+      background: white;
+      padding: 35px 25px;
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      text-align: center;
+    }
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
+    #section-title {
+      color: #1f4e79;
+      margin-bottom: 15px;
+      font-size: 30px;
+    }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 50px;
-            color: #2c3e50;
-            position: relative;
-        }
+    #section-content ul {
+      list-style-position: inside;
+      padding-left: 0;
+    }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: #3498db;
-            margin: 15px auto 0;
-            border-radius: 2px;
-        }
+    #section-content li {
+      margin: 10px 0;
+      font-size: 17px;
+    }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
+    .services {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
 
-        .service-card {
-            background: #f8f9fa;
-            padding: 35px 25px;
-            border-radius: 15px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid #eee;
-        }
+    .services h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #1f4e79;
+      font-size: 32px;
+    }
 
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-        }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
 
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
+    .service-card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
 
-        .service-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: #2c3e50;
-        }
+    .service-card h3 {
+      margin-bottom: 10px;
+      color: #1f4e79;
+    }
 
-        .service-card p {
-            color: #666;
-            font-size: 0.95rem;
-        }
+    .contact {
+      max-width: 800px;
+      margin: 50px auto;
+      background: white;
+      padding: 30px 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
 
-        /* Contact Section */
-        .contact {
-            padding: 80px 20px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
-        }
+    .contact h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #1f4e79;
+    }
 
-        .contact-wrapper {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
-            padding: 50px 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-        }
+    form {
+      display: grid;
+      gap: 15px;
+    }
 
-        .form-group {
-            margin-bottom: 25px;
-        }
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #2c3e50;
-        }
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
 
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-            font-family: inherit;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #3498db;
-        }
-
-        .form-group textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .form-submit {
-            width: 100%;
-            padding: 18px;
-            font-size: 1.1rem;
-        }
-
-        /* Footer */
-        .footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-        }
-
-        .footer p {
-            opacity: 0.8;
-        }
-
-        /* WhatsApp Floating Button */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background-color: #25D366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5);
-            transition: all 0.3s ease;
-            z-index: 1000;
-            text-decoration: none;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
-        }
-
-        .whatsapp-float svg {
-            width: 32px;
-            height: 32px;
-            fill: white;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero {
-                padding: 60px 20px;
-                min-height: 60vh;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            .contact-wrapper {
-                padding: 30px 25px;
-            }
-
-            .whatsapp-float {
-                bottom: 20px;
-                right: 20px;
-                width: 55px;
-                height: 55px;
-            }
-        }
-        .center-btn {
-  display: block;
-  margin: 10px auto;
-  padding: 12px 20px;
-  background: #1f4e79;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
-}
-    </style>
+    footer {
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 40px;
+      background: #1f1f1f;
+      color: white;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>🏡 Terasu Būvniecība Norvēģijā</h1>
-        <p>Profesionāla terasu projektēšana un būvniecība ar Skandināvu kvalitāti. 
-           Mēs izveidosim jūsu sapņu āra telpu, kas kalpos gadiem ilgi.</p>
-        <div class="hero-buttons">
-        <button onclick="showSection('proj')" class="center-btn">Projektēšana</button>   
+  <section class="hero">
+    <h1>Terasu Būvniecība Norvēģijā</h1>
+    <p>Profesionāla terasu projektēšana un būvniecība ar Skandināvu kvalitāti. Mēs izveidosim jūsu sapņu āra telpu, kas kalpos gadiem ilgi.</p>
 
-  <button onclick="showSection('mont')" class="center-btn">Montāža</button>
- <button onclick="showSection('serv')" class="center-btn">Serviss</button>
-        <div class="container">
-            <h2 class="section-title">Mūsu Pakalpojumi</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">📐</div>
-                   <button onclick="showSection('proj')" class="center-btn">Projektēšana</button>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🪵</div>
-                    <h3>Koka Terases</h3>
-                    <p>Augstas kvalitātes koka terases no impregnētas priedes, sibīrijas lapegles vai kompozītmateriāliem.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🔨</div>
-                  <button onclick="showSection('mont')" class="center-btn">Montāža</button>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🛡️</div>
-                    <h3>Renovācija</h3>
-                    <p>Esošo terasu atjaunošana, remonts un apkope. Atdzīvinām jūsu āra telpu.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">💡</div>
-                    <h3>Apgaismojums</h3>
-                    <p>LED apgaismojuma uzstādīšana terasēm – drošībai un atmosfērai.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🏔️</div>
-                    <h3>Norvēģijas Klimats</h3>
-                    <p>Risinājumi, kas iztur bargās ziemas un mitros rudeņus. Ilgtspējīgi materiāli.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn btn-primary">Pieteikties konsultācijai</a>
+      <a href="#contact" class="btn btn-secondary">Sazināties</a>
+    </div>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">Sazināties ar Mums</h2>
-            <div class="contact-wrapper">
-                <form action="#" method="POST">
-                    <div class="form-group">
-                        <label for="name">Vārds, Uzvārds</label>
-                        <input type="text" id="name" name="name" placeholder="Jūsu vārds" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">E-pasts</label>
-                        <input type="email" id="email" name="email" placeholder="jusu@epasts.no" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Telefons</label>
-                        <input type="tel" id="phone" name="phone" placeholder="+47 XXX XX XXX">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Ziņojums</label>
-                        <textarea id="message" name="message" placeholder="Aprakstiet savu projektu vai uzdodiet jautājumu..." required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary form-submit">Nosūtīt pieteikumu</button>
-                </form>
-            </div>
-        </div>
-    </section>
+    <button onclick="showSection('proj')" class="center-btn">Projektēšana</button>
+    <button onclick="showSection('mont')" class="center-btn">Montāža</button>
+    <button onclick="showSection('serv')" class="center-btn">Serviss</button>
+  </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>© 2025 Terasu Būvniecība Norvēģijā. Visas tiesības aizsargātas.</p>
-    </footer>
+  <section id="dynamic-content">
+    <h2 id="section-title">Izvēlieties sadaļu</h2>
+    <div id="section-content">
+      <p>Nospiediet uz “Projektēšana”, “Montāža” vai “Serviss”, lai redzētu informāciju pa vidu lapai.</p>
+    </div>
+  </section>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="[wa.me](https://wa.me/4712345678?text=Sveiki!%20Vēlos%20uzzināt%20vairāk%20par%20terasu%20būvniecību)" 
-       class="whatsapp-float" target="_blank" title="Sazināties WhatsApp">
-        <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 448 512">
-            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
-        </svg>
-    </a>
-<script>
+  <section class="services">
+    <h2>Mūsu Pakalpojumi</h2>
+    <div class="service-grid">
+      <div class="service-card">
+        <h3>Koka Terases</h3>
+        <p>Augstas kvalitātes koka terases no impregnētas priedes, sibīrijas lapegles vai kompozītmateriāliem.</p>
+      </div>
+      <div class="service-card">
+        <h3>Renovācija</h3>
+        <p>Esošo terasu atjaunošana, remonts un apkope. Atdzīvinām jūsu āra telpu.</p>
+      </div>
+      <div class="service-card">
+        <h3>Apgaismojums</h3>
+        <p>LED apgaismojuma uzstādīšana terasēm – drošībai un atmosfērai.</p>
+      </div>
+      <div class="service-card">
+        <h3>Norvēģijas Klimats</h3>
+        <p>Risinājumi, kas iztur bargās ziemas un mitros rudeņus. Ilgtspējīgi materiāli.</p>
+      </div>
+    </div>
+  </section>
 
-<script>
-function showSection(type) {
-  const title = document.getElementById("section-title");
-  const content = document.getElementById("section-content");
+  <section class="contact" id="contact">
+    <h2>Sazināties ar Mums</h2>
+    <form>
+      <input type="text" placeholder="Vārds, Uzvārds" />
+      <input type="email" placeholder="E-pasts" />
+      <input type="tel" placeholder="Telefons" />
+      <textarea placeholder="Ziņojums"></textarea>
+      <button type="submit" class="btn btn-primary">Nosūtīt pieteikumu</button>
+    </form>
+  </section>
 
-  if (type === "proj") {
-    title.innerText = "Projektēšana";
-    content.innerHTML = `
-      <ul>
-        <li>Elektroinstalāciju projektēšana</li>
-        <li>Apgaismojuma risinājumi</li>
-        <li>Individuāli projekti</li>
-      </ul>
-    `;
-  }
+  <footer>
+    © 2025 Terasu Būvniecība Norvēģijā. Visas tiesības aizsargātas.
+  </footer>
 
-  if (type === "mont") {
-    title.innerText = "Montāža";
-    content.innerHTML = `
-      <ul>
-        <li>Kabeļu ievilkšana</li>
-        <li>Rozešu uzstādīšana</li>
-        <li>Sadales skapji</li>
-      </ul>
-    `;
-  }
+  <script>
+    function showSection(type) {
+      const title = document.getElementById("section-title");
+      const content = document.getElementById("section-content");
 
-  if (type === "serv") {
-    title.innerText = "Serviss";
-    content.innerHTML = `
-      <ul>
-        <li>Remonts</li>
-        <li>Diagnostika</li>
-        <li>Apkope</li>
-      </ul>
-    `;
-  }
+      if (type === "proj") {
+        title.innerText = "Projektēšana";
+        content.innerHTML = `
+          <ul>
+            <li>Terases projekta izstrāde pēc jūsu vajadzībām</li>
+            <li>Materiālu un konstrukciju izvēle</li>
+            <li>Apgaismojuma un dizaina risinājumi</li>
+            <li>Individuāla konsultācija pirms darbu sākuma</li>
+          </ul>
+        `;
+      }
 
-  document.getElementById("dynamic-content").scrollIntoView({ behavior: "smooth" });
-}
-</script>
+      if (type === "mont") {
+        title.innerText = "Montāža";
+        content.innerHTML = `
+          <ul>
+            <li>Pamatu un karkasa izbūve</li>
+            <li>Dēļu montāža un apdares darbi</li>
+            <li>Kāpņu, margu un papildus elementu uzstādīšana</li>
+            <li>Precīza un kvalitatīva darbu izpilde termiņā</li>
+          </ul>
+        `;
+      }
+
+      if (type === "serv") {
+        title.innerText = "Serviss";
+        content.innerHTML = `
+          <ul>
+            <li>Terasu remonts un atjaunošana</li>
+            <li>Apkope un sezonālā pārbaude</li>
+            <li>Virsmu nomaiņa un uzlabojumi</li>
+            <li>Konsultācijas par ilgtermiņa uzturēšanu</li>
+          </ul>
+        `;
+      }
+
+      document.getElementById("dynamic-content").scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
 
 </body>
 </html>
-
-
-
-
