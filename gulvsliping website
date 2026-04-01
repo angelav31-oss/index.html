@@ -1,332 +1,938 @@
-import { useState } from 'react';
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gulvsliping | Profesjonell sliping av parkettgulv</title>
+  <meta
+    name="description"
+    content="Profesjonell gulvsliping, lakking, oljing og reparasjon av parkettgulv. Få et gratis tilbud i dag."
+  />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-export default function GulvslipingNettside() {
-  const [openService, setOpenService] = useState(null);
-  const [openProcess, setOpenProcess] = useState(null);
-  const [openFaq, setOpenFaq] = useState(null);
-  const tjenester = [
-    {
-      title: 'Gulvsliping',
-      text: 'Vi sliper parkettgulv skånsomt og effektivt, slik at gulvet får et nytt og jevnt uttrykk.',
-      details:
-        'Vi bruker profesjonelt slipeutstyr som fjerner slitasje, små riper og ujevnheter. Dette gir gulvet en frisk overflate som er klar for ny behandling og lang levetid.',
-    },
-    {
-      title: 'Lakking og oljing',
-      text: 'Velg mellom slitesterk lakk eller naturlig olje for et resultat som passer hjemmet ditt.',
-      details:
-        'Vi hjelper deg å velge riktig finish basert på bruk, stil og ønsket vedlikehold. Lakk gir høy slitestyrke, mens olje gir et mer naturlig og varmt utseende.',
-    },
-    {
-      title: 'Reparasjon av parkett',
-      text: 'Vi utbedrer riper, hakk og mindre skader før overflatebehandling.',
-      details:
-        'Før sliping vurderer vi skader i gulvet og utfører nødvendige utbedringer. Dette kan inkludere fylling av små sprekker, justering av løse bord og forbedring av helhetsinntrykket.',
-    },
-  ];
+    html {
+      scroll-behavior: smooth;
+    }
 
-  const fordeler = [
-    'Gratis befaring og pristilbud',
-    'Erfaring med parkett, tregulv og heltre',
-    'Ryddig arbeid og høy kvalitet',
-    'Rask respons og fleksible tider',
-  ];
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #222;
+      background: linear-gradient(to bottom, #f8f5ef, #ffffff, #f9f1e7);
+    }
 
-  const faqItems = [
-    {
-      question: 'Hvor lang tid tar gulvsliping?',
-      answer:
-        'Tiden avhenger av areal, gulvtype og valgt behandling. For vanlige rom kan arbeidet ofte utføres i løpet av 1–2 dager, mens større prosjekter kan ta lenger tid.',
-    },
-    {
-      question: 'Blir det mye støv under sliping?',
-      answer:
-        'Vi bruker moderne slipeutstyr med effektiv støvoppsamling for å redusere støv mest mulig. Det vil alltid være noe arbeid rundt prosessen, men vi jobber ryddig og skånsomt.',
-    },
-    {
-      question: 'Kan gammel parkett bli som ny igjen?',
-      answer:
-        'I mange tilfeller ja. Sliping og riktig behandling kan gi gammel parkett et betydelig løft, så lenge gulvet har nok slitesjikt og ikke er for hardt skadet.',
-    },
-    {
-      question: 'Hva er best – lakk eller olje?',
-      answer:
-        'Det kommer an på ønsket uttrykk og vedlikehold. Lakk gir en slitesterk overflate som er enkel å rengjøre, mens olje gir et mer naturlig og eksklusivt preg med litt mer vedlikehold.',
-    },
-  ];
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-stone-50 via-white to-amber-50 text-neutral-900">
-      <header className="relative overflow-hidden bg-gradient-to-br from-stone-100 via-white to-amber-100">
-        <div className="absolute inset-0 opacity-40">
-          <div className="absolute left-0 top-0 h-72 w-72 rounded-full bg-amber-200 blur-3xl" />
-          <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-stone-300 blur-3xl" />
-        </div>
-        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
-            <div>
-              <p className="mb-4 inline-block rounded-full bg-white px-4 py-2 text-sm font-medium shadow-sm">
-                Profesjonell gulvsliping i Norge
-              </p>
-              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-                Gulvsliping for parkett som ser ut som ny
-              </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-neutral-700">
-                Vi hjelper deg med sliping, behandling og fornyelse av parkettgulv.
-                Enten du ønsker et moderne matt uttrykk eller klassisk finish, leverer vi et resultat
-                du kan være stolt av.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <a
-                  href="#kontakt"
-                  className="rounded-2xl bg-neutral-900 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:scale-[1.02]"
-                >
-                  Be om gratis tilbud
-                </a>
-                <a
-                  href="#tjenester"
-                  className="rounded-2xl border border-neutral-300 bg-white px-6 py-3 text-sm font-semibold text-neutral-900 shadow-sm transition hover:bg-neutral-100"
-                >
-                  Se våre tjenester
-                </a>
-              </div>
-            </div>
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-            <div>
-              <div className="rounded-[2rem] border border-white/60 bg-white/80 p-4 shadow-[0_25px_80px_rgba(0,0,0,0.12)] backdrop-blur">
-                <img
-                  src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80"
-                  alt="Nyslipt parkettgulv i stue"
-                  className="h-[420px] w-full rounded-[1.5rem] object-cover ring-1 ring-black/5"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-      <section className="mx-auto max-w-7xl px-6 py-16 lg:px-8" id="tjenester">
-        <div className="max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-700">Tjenester</p>
-          <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Hva vi tilbyr</h2>
-          <p className="mt-4 text-neutral-700">
-            Vi tilbyr komplette løsninger for deg som vil fornye gamle parkettgulv og få et varig resultat.
-          </p>
-        </div>
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.9);
+      border-bottom: 1px solid #eee;
+    }
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {tjenester.map((item, index) => {
-            const isOpen = openService === index;
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+    }
 
-            return (
-              <button
-                key={item.title}
-                type="button"
-                onClick={() => setOpenService(isOpen ? null : index)}
-                className="rounded-3xl border border-white/70 bg-white/90 p-8 text-left shadow-[0_10px_35px_rgba(0,0,0,0.08)] ring-1 ring-amber-100 transition hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(0,0,0,0.12)] backdrop-blur"
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 className="text-xl font-semibold">{item.title}</h3>
-                    <p className="mt-3 leading-7 text-neutral-700">{item.text}</p>
-                  </div>
-                  <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-amber-100 text-lg font-bold text-neutral-900">
-                    {isOpen ? '−' : '+'}
-                  </span>
-                </div>
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #1e1e1e;
+      letter-spacing: 0.5px;
+    }
 
-                {isOpen && (
-                  <div className="mt-5 rounded-2xl bg-amber-50 p-4 text-sm leading-7 text-neutral-800">
-                    {item.details}
-                  </div>
-                )}
-              </button>
-            );
-          })}
-        </div>
-      </section>
+    .logo span {
+      color: #b8860b;
+    }
 
-      <section className="bg-white/80 backdrop-blur">
-        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-2 lg:px-8">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-700">Hvorfor velge oss</p>
-            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Trygg, effektiv og pen gulvfornyelse</h2>
-            <p className="mt-4 text-neutral-700 leading-7">
-              Vi jobber med fokus på detaljer, rene linjer og et pent sluttresultat. Målet vårt er å gi nytt liv til gulvet ditt
-              og samtidig gjøre prosessen enkel og forutsigbar.
-            </p>
-          </div>
-          <div className="rounded-3xl border border-amber-100 bg-gradient-to-br from-stone-50 to-amber-50 p-8 shadow-[0_10px_30px_rgba(0,0,0,0.05)]">
-            <ul className="space-y-4">
-              {fordeler.map((fordel) => (
-                <li key={fordel} className="flex items-start gap-3 rounded-2xl border border-white/80 bg-white/90 p-4 shadow-sm>
-                  <span className="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-neutral-900 text-sm font-bold text-white">
-                    ✓
-                  </span>
-                  <span className="text-neutral-800">{fordel}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
 
-      <section className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
-        <div className="rounded-[2rem] bg-gradient-to-br from-neutral-950 via-neutral-900 to-stone-800 px-8 py-12 text-white shadow-[0_25px_80px_rgba(0,0,0,0.25)]">
-          <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-300">Prosess</p>
-              <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Slik jobber vi</h2>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-3">
-              {[
-                {
-                  title: 'Befaring',
-                  short: 'Vi vurderer gulvet og gir deg et tydelig tilbud.',
-                  details:
-                    'Under befaringen ser vi på gulvtype, slitasjegrad, tidligere behandling og eventuelle skader. Deretter gir vi anbefaling om løsning, tidsbruk og pris.',
-                },
-                {
-                  title: 'Sliping',
-                  short: 'Vi sliper gulvet jevnt og profesjonelt.',
-                  details:
-                    'Selve slipearbeidet utføres i flere trinn for å oppnå et jevnt og pent resultat. Vi jobber systematisk for å redusere støv og sikre høy kvalitet i hele rommet.',
-                },
-                {
-                  title: 'Behandling',
-                  short: 'Vi avslutter med ønsket overflate og finish.',
-                  details:
-                    'Når gulvet er ferdig slipt, påfører vi ønsket behandling som lakk eller olje. Dette beskytter overflaten og gir gulvet det uttrykket du ønsker.',
-                },
-              ].map((step, index) => {
-                const isOpen = openProcess === index;
+    .nav-links a {
+      color: #333;
+      font-weight: 600;
+      transition: 0.2s;
+    }
 
-                return (
-                  <button
-                    key={step.title}
-                    type="button"
-                    onClick={() => setOpenProcess(isOpen ? null : index)}
-                    className="rounded-2xl bg-white/10 p-5 text-left transition hover:bg-white/15"
-                  >
-                    <div className="flex items-start justify-between gap-3">
-                      <div>
-                        <p className="text-sm text-amber-300">{index + 1}</p>
-                        <h3 className="mt-2 font-semibold">{step.title}</h3>
-                        <p className="mt-2 text-sm text-neutral-200">{step.short}</p>
-                      </div>
-                      <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/20 text-sm font-bold text-white">
-                        {isOpen ? '−' : '+'}
-                      </span>
-                    </div>
+    .nav-links a:hover {
+      color: #b8860b;
+    }
 
-                    {isOpen && (
-                      <div className="mt-4 rounded-xl bg-white/10 p-3 text-sm leading-6 text-neutral-100">
-                        {step.details}
-                      </div>
-                    )}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="mx-auto max-w-5xl px-6 py-20 lg:px-8" id="faq">
-        <div className="text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-700">FAQ</p>
-          <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Ofte stilte spørsmål</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-neutral-700">
-            Her finner du svar på vanlige spørsmål om parkettsliping, behandling og prosessen rundt arbeidet.
-          </p>
-        </div>
+    .btn {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 14px;
+      font-weight: bold;
+      transition: 0.25s;
+      cursor: pointer;
+      border: none;
+    }
 
-        <div className="mt-10 space-y-4">
-          {faqItems.map((item, index) => {
-            const isOpen = openFaq === index;
+    .btn-primary {
+      background: #1f1f1f;
+      color: #fff;
+    }
 
-            return (
-              <button
-                key={item.question}
-                type="button"
-                onClick={() => setOpenFaq(isOpen ? null : index)}
-                className="w-full rounded-3xl border border-white/70 bg-white/90 p-6 text-left shadow-[0_10px_35px_rgba(0,0,0,0.06)] ring-1 ring-amber-100 transition hover:shadow-[0_14px_40px_rgba(0,0,0,0.1)] backdrop-blur"
-              >
-                <div className="flex items-center justify-between gap-4">
-                  <h3 className="text-lg font-semibold sm:text-xl">{item.question}</h3>
-                  <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-amber-100 text-lg font-bold text-neutral-900">
-                    {isOpen ? '−' : '+'}
-                  </span>
-                </div>
+    .btn-primary:hover {
+      background: #000;
+      transform: translateY(-1px);
+    }
 
-                {isOpen && (
-                  <div className="mt-4 rounded-2xl bg-gradient-to-r from-amber-50 to-stone-50 p-4 text-sm leading-7 text-neutral-800 sm:text-base">
-                    {item.answer}
-                  </div>
-                )}
-              </button>
-            );
-          })}
-        </div>
-      </section>$1
-        <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-2">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-700">Kontakt</p>
-              <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Ta kontakt for gratis pristilbud</h2>
-              <p className="mt-4 max-w-xl leading-7 text-neutral-700">
-                Fortell oss litt om gulvet ditt, størrelsen på området og hva du ønsker hjelp med.
-                Vi svarer så raskt som mulig.
-              </p>
-              <div className="mt-8 space-y-3 text-neutral-800">
-                <p><strong>Telefon:</strong> +47 99 99 99 99</p>
-                <p><strong>E-post:</strong> post@gulvsliping.no</p>
-                <p><strong>Område:</strong> Oslo og omegn</p>
-              </div>
-            </div>
+    .btn-secondary {
+      background: #fff;
+      color: #222;
+      border: 1px solid #ddd;
+    }
 
-            <form className="rounded-[2rem] border border-white/70 bg-white/90 p-8 shadow-[0_20px_50px_rgba(0,0,0,0.08)] ring-1 ring-amber-100 backdrop-blur">
-              <div className="grid gap-5">
-                <div>
-                  <label className="mb-2 block text-sm font-medium">Navn</label>
-                  <input
-                    type="text"
-                    placeholder="Ditt navn"
-                    className="w-full rounded-2xl border border-neutral-300 px-4 py-3 outline-none transition focus:border-neutral-900"
-                  />
-                </div>
-                <div>
-                  <label className="mb-2 block text-sm font-medium">Telefon</label>
-                  <input
-                    type="text"
-                    placeholder="Ditt telefonnummer"
-                    className="w-full rounded-2xl border border-neutral-300 px-4 py-3 outline-none transition focus:border-neutral-900"
-                  />
-                </div>
-                <div>
-                  <label className="mb-2 block text-sm font-medium">Melding</label>
-                  <textarea
-                    rows={5}
-                    placeholder="Skriv litt om gulvet og hva du ønsker hjelp med"
-                    className="w-full rounded-2xl border border-neutral-300 px-4 py-3 outline-none transition focus:border-neutral-900"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="rounded-2xl bg-neutral-900 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:scale-[1.02]"
-                >
-                  Send forespørsel
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </section>
+    .btn-secondary:hover {
+      background: #f6f6f6;
+    }
 
-      <footer className="border-t border-neutral-200/70 bg-white/80 backdrop-blur">
-        <div className="mx-auto max-w-7xl px-6 py-8 text-sm text-neutral-600 lg:px-8">
-          © 2026 Gulvsliping. Alle rettigheter forbeholdt.
-        </div>
-      </footer>
+    .hero {
+      padding: 70px 0 50px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #fff;
+      color: #5a4a1b;
+      border: 1px solid #eee;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      margin-bottom: 18px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: #171717;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #555;
+      max-width: 650px;
+      margin-bottom: 28px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.75);
+      border: 1px solid rgba(255,255,255,0.7);
+      border-radius: 28px;
+      padding: 14px;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.12);
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-card img {
+      border-radius: 22px;
+      min-height: 430px;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    section {
+      padding: 70px 0;
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-head span {
+      display: inline-block;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #9a6f00;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .section-head h2 {
+      font-size: 38px;
+      margin-bottom: 12px;
+      color: #1f1f1f;
+    }
+
+    .section-head p {
+      max-width: 760px;
+      margin: 0 auto;
+      color: #666;
+      font-size: 17px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.92);
+      border: 1px solid #f0e6cf;
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+      transition: 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.12);
+    }
+
+    .accordion-button {
+      width: 100%;
+      background: transparent;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      font: inherit;
+      color: inherit;
+    }
+
+    .accordion-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    .accordion-top h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #1d1d1d;
+    }
+
+    .accordion-top p {
+      color: #666;
+    }
+
+    .plus {
+      min-width: 40px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #f5e5b9;
+      color: #1d1d1d;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .accordion-content {
+      display: none;
+      margin-top: 18px;
+      padding: 16px;
+      background: linear-gradient(to right, #fff7e8, #f8f4ec);
+      border-radius: 16px;
+      color: #444;
+    }
+
+    .accordion-item.active .accordion-content {
+      display: block;
+    }
+
+    .benefits-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .benefits-text h2 {
+      font-size: 38px;
+      margin: 14px 0;
+    }
+
+    .benefits-text p {
+      color: #666;
+      font-size: 17px;
+    }
+
+    .benefits-box {
+      background: linear-gradient(to bottom right, #faf7f1, #f9efd8);
+      border: 1px solid #f0e2bb;
+      padding: 26px;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    .benefit {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      background: rgba(255,255,255,0.85);
+      padding: 16px;
+      border-radius: 18px;
+      border: 1px solid #f5f0e4;
+      margin-bottom: 14px;
+    }
+
+    .benefit:last-child {
+      margin-bottom: 0;
+    }
+
+    .check {
+      min-width: 28px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #1f1f1f;
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      margin-top: 2px;
+    }
+
+    .dark-section {
+      background: linear-gradient(to bottom right, #111, #1f1f1f, #3b3428);
+      color: white;
+      border-radius: 34px;
+      padding: 40px;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.25);
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .process-card {
+      background: rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 22px;
+    }
+
+    .process-card .number {
+      color: #f0c96b;
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .process-card h3 {
+      margin-bottom: 8px;
+      font-size: 21px;
+    }
+
+    .process-card p {
+      color: #ddd;
+    }
+
+    .faq-list {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: rgba(255,255,255,0.92);
+      border: 1px solid #f0e6cf;
+      border-radius: 22px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.06);
+      margin-bottom: 14px;
+      overflow: hidden;
+    }
+
+    .faq-button {
+      width: 100%;
+      border: none;
+      background: transparent;
+      text-align: left;
+      padding: 22px;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .faq-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .faq-top h3 {
+      font-size: 20px;
+      color: #1d1d1d;
+    }
+
+    .faq-content {
+      display: none;
+      padding: 0 22px 22px;
+      color: #555;
+    }
+
+    .faq-item.active .faq-content {
+      display: block;
+    }
+
+    .contact-section {
+      background: linear-gradient(to bottom, #fbf3e3, #f4efe9);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .contact-box h2 {
+      font-size: 38px;
+      margin: 12px 0 14px;
+    }
+
+    .contact-box p {
+      color: #666;
+      max-width: 580px;
+    }
+
+    .contact-info {
+      margin-top: 24px;
+    }
+
+    .contact-info p {
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    .form-card {
+      background: rgba(255,255,255,0.92);
+      border: 1px solid #f0e6cf;
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #222;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #d9d9d9;
+      border-radius: 14px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #b8860b;
+    }
+
+    footer {
+      background: rgba(255,255,255,0.85);
+      border-top: 1px solid #eee;
+      padding: 28px 0;
+      text-align: center;
+      color: #666;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .benefits-wrap,
+      .contact-grid,
+      .cards,
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1,
+      .section-head h2,
+      .benefits-text h2,
+      .contact-box h2 {
+        font-size: 34px;
+      }
+
+      .nav {
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding-top: 40px;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .section-head h2,
+      .benefits-text h2,
+      .contact-box h2 {
+        font-size: 28px;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .dark-section {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container nav">
+      <div class="logo">Gulv<span>sliping</span></div>
+      <div class="nav-links">
+        <a href="#tjenester">Tjenester</a>
+        <a href="#fordeler">Fordeler</a>
+        <a href="#prosess">Prosess</a>
+        <a href="#faq">FAQ</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
     </div>
-  );
-}
+  </div>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="badge">Profesjonell gulvsliping i Norge</div>
+        <h1>Gulvsliping for parkett som ser ut som ny</h1>
+        <p>
+          Vi hjelper deg med sliping, behandling og fornyelse av parkettgulv.
+          Enten du ønsker et moderne matt uttrykk eller en klassisk finish,
+          leverer vi et resultat du kan være stolt av.
+        </p>
+        <div class="hero-buttons">
+          <a href="#kontakt" class="btn btn-primary">Be om gratis tilbud</a>
+          <a href="#tjenester" class="btn btn-secondary">Se våre tjenester</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <img
+          src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80"
+          alt="Nyslipt parkettgulv i stue"
+        />
+      </div>
+    </div>
+  </header>
+
+  <section id="tjenester">
+    <div class="container">
+      <div class="section-head">
+        <span>Tjenester</span>
+        <h2>Hva vi tilbyr</h2>
+        <p>
+          Vi tilbyr komplette løsninger for deg som vil fornye gamle parkettgulv
+          og få et varig og eksklusivt resultat.
+        </p>
+      </div>
+
+      <div class="cards">
+        <div class="card accordion-item">
+          <button class="accordion-button">
+            <div class="accordion-top">
+              <div>
+                <h3>Gulvsliping</h3>
+                <p>
+                  Vi sliper parkettgulv skånsomt og effektivt, slik at gulvet får
+                  et nytt og jevnt uttrykk.
+                </p>
+              </div>
+              <span class="plus">+</span>
+            </div>
+          </button>
+          <div class="accordion-content">
+            Vi bruker profesjonelt slipeutstyr som fjerner slitasje, små riper og
+            ujevnheter. Dette gir gulvet en frisk overflate som er klar for ny
+            behandling og lang levetid.
+          </div>
+        </div>
+
+        <div class="card accordion-item">
+          <button class="accordion-button">
+            <div class="accordion-top">
+              <div>
+                <h3>Lakking og oljing</h3>
+                <p>
+                  Velg mellom slitesterk lakk eller naturlig olje for et resultat
+                  som passer hjemmet ditt.
+                </p>
+              </div>
+              <span class="plus">+</span>
+            </div>
+          </button>
+          <div class="accordion-content">
+            Vi hjelper deg å velge riktig finish basert på bruk, stil og ønsket
+            vedlikehold. Lakk gir høy slitestyrke, mens olje gir et mer naturlig
+            og varmt utseende.
+          </div>
+        </div>
+
+        <div class="card accordion-item">
+          <button class="accordion-button">
+            <div class="accordion-top">
+              <div>
+                <h3>Reparasjon av parkett</h3>
+                <p>
+                  Vi utbedrer riper, hakk og mindre skader før overflatebehandling.
+                </p>
+              </div>
+              <span class="plus">+</span>
+            </div>
+          </button>
+          <div class="accordion-content">
+            Før sliping vurderer vi skader i gulvet og utfører nødvendige
+            utbedringer. Dette kan inkludere fylling av små sprekker, justering av
+            løse bord og forbedring av helhetsinntrykket.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fordeler">
+    <div class="container benefits-wrap">
+      <div class="benefits-text">
+        <span style="display:block;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#9a6f00;font-weight:bold;">
+          Hvorfor velge oss
+        </span>
+        <h2>Trygg, effektiv og pen gulvfornyelse</h2>
+        <p>
+          Vi jobber med fokus på detaljer, rene linjer og et pent sluttresultat.
+          Målet vårt er å gi nytt liv til gulvet ditt og samtidig gjøre prosessen
+          enkel og forutsigbar.
+        </p>
+      </div>
+
+      <div class="benefits-box">
+        <div class="benefit">
+          <span class="check">✓</span>
+          <div>Gratis befaring og pristilbud</div>
+        </div>
+        <div class="benefit">
+          <span class="check">✓</span>
+          <div>Erfaring med parkett, tregulv og heltre</div>
+        </div>
+        <div class="benefit">
+          <span class="check">✓</span>
+          <div>Ryddig arbeid og høy kvalitet</div>
+        </div>
+        <div class="benefit">
+          <span class="check">✓</span>
+          <div>Rask respons og fleksible tider</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="prosess">
+    <div class="container">
+      <div class="dark-section">
+        <div class="section-head" style="margin-bottom: 10px; text-align:left;">
+          <span style="color:#f0c96b;">Prosess</span>
+          <h2 style="color:white;">Slik jobber vi</h2>
+          <p style="color:#d9d9d9; max-width:700px; margin:0;">
+            Klikk på hvert trinn for å se mer informasjon om hvordan vi jobber fra
+            befaring til ferdig resultat.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <div class="process-card accordion-item">
+            <button class="accordion-button">
+              <div class="accordion-top">
+                <div>
+                  <div class="number">1</div>
+                  <h3>Befaring</h3>
+                  <p>Vi vurderer gulvet og gir deg et tydelig tilbud.</p>
+                </div>
+                <span class="plus">+</span>
+              </div>
+            </button>
+            <div class="accordion-content" style="background:rgba(255,255,255,0.08); color:#f2f2f2;">
+              Under befaringen ser vi på gulvtype, slitasjegrad, tidligere
+              behandling og eventuelle skader. Deretter gir vi anbefaling om
+              løsning, tidsbruk og pris.
+            </div>
+          </div>
+
+          <div class="process-card accordion-item">
+            <button class="accordion-button">
+              <div class="accordion-top">
+                <div>
+                  <div class="number">2</div>
+                  <h3>Sliping</h3>
+                  <p>Vi sliper gulvet jevnt og profesjonelt.</p>
+                </div>
+                <span class="plus">+</span>
+              </div>
+            </button>
+            <div class="accordion-content" style="background:rgba(255,255,255,0.08); color:#f2f2f2;">
+              Selve slipearbeidet utføres i flere trinn for å oppnå et jevnt og
+              pent resultat. Vi jobber systematisk for å redusere støv og sikre
+              høy kvalitet i hele rommet.
+            </div>
+          </div>
+
+          <div class="process-card accordion-item">
+            <button class="accordion-button">
+              <div class="accordion-top">
+                <div>
+                  <div class="number">3</div>
+                  <h3>Behandling</h3>
+                  <p>Vi avslutter med ønsket overflate og finish.</p>
+                </div>
+                <span class="plus">+</span>
+              </div>
+            </button>
+            <div class="accordion-content" style="background:rgba(255,255,255,0.08); color:#f2f2f2;">
+              Når gulvet er ferdig slipt, påfører vi ønsket behandling som lakk
+              eller olje. Dette beskytter overflaten og gir gulvet det uttrykket
+              du ønsker.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <div class="section-head">
+        <span>FAQ</span>
+        <h2>Ofte stilte spørsmål</h2>
+        <p>
+          Her finner du svar på vanlige spørsmål om parkettsliping, behandling og
+          prosessen rundt arbeidet.
+        </p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-button">
+            <div class="faq-top">
+              <h3>Hvor lang tid tar gulvsliping?</h3>
+              <span class="plus">+</span>
+            </div>
+          </button>
+          <div class="faq-content">
+            Tiden avhenger av areal, gulvtype og valgt behandling. For vanlige rom
+            kan arbeidet ofte utføres i løpet av 1–2 dager, mens større prosjekter
+            kan ta lenger tid.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-button">
+            <div class="faq-top">
+              <h3>Blir det mye støv under sliping?</h3>
+              <span class="plus">+</span>
+            </div>
+          </button>
+          <div class="faq-content">
+            Vi bruker moderne slipeutstyr med effektiv støvoppsamling for å
+            redusere støv mest mulig. Det vil alltid være noe arbeid rundt
+            prosessen, men vi jobber ryddig og skånsomt.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-button">
+            <div class="faq-top">
+              <h3>Kan gammel parkett bli som ny igjen?</h3>
+              <span class="plus">+</span>
+            </div>
+          </button>
+          <div class="faq-content">
+            I mange tilfeller ja. Sliping og riktig behandling kan gi gammel
+            parkett et betydelig løft, så lenge gulvet har nok slitesjikt og ikke
+            er for hardt skadet.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-button">
+            <div class="faq-top">
+              <h3>Hva er best – lakk eller olje?</h3>
+              <span class="plus">+</span>
+            </div>
+          </button>
+          <div class="faq-content">
+            Det kommer an på ønsket uttrykk og vedlikehold. Lakk gir en slitesterk
+            overflate som er enkel å rengjøre, mens olje gir et mer naturlig og
+            eksklusivt preg med litt mer vedlikehold.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="kontakt">
+    <div class="container contact-grid">
+      <div class="contact-box">
+        <span style="display:block;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#9a6f00;font-weight:bold;">
+          Kontakt
+        </span>
+        <h2>Ta kontakt for gratis pristilbud</h2>
+        <p>
+          Fortell oss litt om gulvet ditt, størrelsen på området og hva du ønsker
+          hjelp med. Vi svarer så raskt som mulig.
+        </p>
+
+        <div class="contact-info">
+          <p><strong>Telefon:</strong> +47 99 99 99 99</p>
+          <p><strong>E-post:</strong> post@gulvsliping.no</p>
+          <p><strong>Område:</strong> Oslo og omegn</p>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <form onsubmit="sendForm(event)">
+          <div class="form-group">
+            <label for="name">Navn</label>
+            <input type="text" id="name" placeholder="Ditt navn" required />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Telefon</label>
+            <input type="text" id="phone" placeholder="Ditt telefonnummer" required />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Melding</label>
+            <textarea id="message" rows="5" placeholder="Skriv litt om gulvet og hva du ønsker hjelp med" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%;">
+            Send forespørsel
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Gulvsliping. Alle rettigheter forbeholdt.
+  </footer>
+
+  <script>
+    const accordionItems = document.querySelectorAll('.accordion-item');
+
+    accordionItems.forEach((item) => {
+      const button = item.querySelector('.accordion-button');
+      const plus = item.querySelector('.plus');
+
+      button.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+
+        accordionItems.forEach((other) => {
+          other.classList.remove('active');
+          const otherPlus = other.querySelector('.plus');
+          if (otherPlus) otherPlus.textContent = '+';
+        });
+
+        if (!isActive) {
+          item.classList.add('active');
+          if (plus) plus.textContent = '−';
+        }
+      });
+    });
+
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach((item) => {
+      const button = item.querySelector('.faq-button');
+      const plus = item.querySelector('.plus');
+
+      button.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+
+        faqItems.forEach((other) => {
+          other.classList.remove('active');
+          const otherPlus = other.querySelector('.plus');
+          if (otherPlus) otherPlus.textContent = '+';
+        });
+
+        if (!isActive) {
+          item.classList.add('active');
+          if (plus) plus.textContent = '−';
+        }
+      });
+    });
+
+    function sendForm(event) {
+      event.preventDefault();
+      alert('Takk! Forespørselen din er sendt.');
+    }
+  </script>
+</body>
+</html>
